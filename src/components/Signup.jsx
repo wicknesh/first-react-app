@@ -1,27 +1,39 @@
-import { Button, TextField } from '@mui/material'
-import React from 'react'
+import { Box, Button, TextField } from '@mui/material'
+import '../App.css'
+import TableMap from './TableMap'
 
 const Signup = () => {
+  const data = [{name: 'Vignesh', place: 'TVM'}];
   return (
-    <div>
-        <br />
-        <br />
-        <TextField variant='outlined' label='Name'/>
-        <br />
-        <br />
-        <TextField variant='outlined' label='Age' type='number'/>
-        <br />
-        <br />
-        <TextField variant='outlined' label='Place'/>
-        <br />
-        <br />
-        <TextField variant='outlined' label='Father&#39;s Name'/>
-        <br />
-        <br />
-        <TextField variant='outlined' label='Mother&#39;s Name'/>
-        <br />
-        <br />
-        <Button variant="contained" color='error'>Signup</Button>
+    <div className='form'>
+      <Box component="form"
+        sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}>
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="Name"
+          />
+          <TextField
+            id="outlined-disabled"
+            label="Place"
+          />
+        </div>
+        <div> 
+          <TextField
+            id="outlined-disabled"
+            label="Username"
+          />
+          <TextField
+            id="outlined-password-input"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+          />
+        </div>
+        <Button variant="contained">Signup</Button>
+        <TableMap rows={data}/>
+      </Box>
     </div>
   )
 }
